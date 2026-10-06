@@ -204,6 +204,41 @@ tbody th { font-weight: 500; }
 .program-details dt { color: var(--muted); font-size: 10px; }
 .program-details dd { margin: 3px 0 0; font-size: 12px; font-weight: 600; }
 .empty-state { padding: 24px 10px; color: var(--muted); text-align: center; font-size: 11px; }
+.api-intelligence { display: grid; gap: 7px; margin-top: 15px; padding-top: 12px; border-top: 1px solid var(--border); }
+.api-intelligence-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; }
+.api-intelligence-heading strong { font-size: 10px; font-weight: 650; }
+.api-intelligence-heading > span { color: var(--subtle); font-size: 9px; }
+.api-state-text, .api-methodology, .api-talent-note { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.45; }
+.api-state-text strong { color: var(--foreground); font-weight: 650; }
+.api-state-error { color: var(--warning); }
+.api-methodology { color: var(--subtle); font-size: 9px; }
+.onet-skill-list { display: grid; gap: 3px; margin: 0; padding: 0; list-style: none; }
+.onet-skill-list li { display: flex; justify-content: space-between; gap: 10px; color: var(--foreground); font-size: 10px; }
+.onet-skill-list li span { color: var(--subtle); font-size: 9px; text-align: right; }
+.selected-career-details { display: grid; gap: 6px; padding: 9px; border: 1px solid var(--border); background: var(--surface-muted); }
+.ncs-career-description { display: -webkit-box; overflow: hidden; margin: 0; color: var(--muted); font-size: 10px; line-height: 1.5; -webkit-box-orient: vertical; -webkit-line-clamp: 5; }
+.api-provider-link, .onet-attribution { width: fit-content; color: var(--accent); font-size: 9px; text-decoration: underline; text-underline-offset: 2px; }
+.onet-intelligence { display: grid; gap: 6px; margin-top: 7px; padding-top: 10px; border-top: 1px solid var(--border); }
+.onet-occupation-title { margin: 0; color: var(--foreground); font-size: 10px; font-weight: 600; }
+.onet-occupation-title span { margin-left: 6px; color: var(--subtle); font-size: 9px; font-weight: 400; }
+.api-talent-note { padding-top: 8px; border-top: 1px solid var(--border); color: var(--subtle); }
+.ncs-field { display: grid; gap: 4px; }
+.ncs-field > span { color: var(--muted); font-size: 10px; font-weight: 600; }
+.ncs-field select, .ncs-field textarea { width: 100%; padding: 7px 9px; border: 1px solid var(--border-strong); border-radius: 2px; background: #fff; color: var(--foreground); font: inherit; font-size: 11px; }
+.ncs-field textarea { min-height: 68px; resize: vertical; }
+.ncs-field select:focus, .ncs-field textarea:focus { border-color: var(--accent); outline: 2px solid #176b551a; }
+.ncs-gap-summary { margin: 0 0 16px; padding: 0 16px 13px; border: 1px solid var(--border); background: var(--surface); }
+.ncs-gap-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; padding: 10px 0; border-top: 1px solid var(--border); }
+.ncs-gap-columns > div + div { padding-left: 14px; border-left: 1px solid var(--border); }
+.ncs-gap-columns strong { color: var(--muted); font-size: 10px; }
+.ncs-gap-columns p { margin: 4px 0 0; color: var(--foreground); font-size: 11px; line-height: 1.5; }
+.ncs-roadmap { display: grid; gap: 0; margin: 4px 0 0; padding: 0; border-top: 1px solid var(--border); list-style: none; }
+.ncs-roadmap li { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; align-items: start; gap: 9px; padding: 8px 2px; border-bottom: 1px solid var(--border); }
+.ncs-roadmap li > span:first-child { color: var(--accent); font-size: 10px; font-variant-numeric: tabular-nums; }
+.ncs-roadmap li > div { display: grid; gap: 2px; }
+.ncs-roadmap li strong { font-size: 11px; font-weight: 600; }
+.ncs-roadmap li small, .ncs-importance { color: var(--subtle); font-size: 9px; }
+.ncs-importance { text-align: right; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
 
 button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -257,6 +292,10 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   .measure-summary { border-right: 0; border-bottom: 1px solid var(--border); }
   .measure-indicators { grid-template-columns: 1fr; gap: 14px; padding: 16px; }
   .measurement-rule { grid-column: auto; }
+  .ncs-gap-columns { grid-template-columns: 1fr; gap: 8px; }
+  .ncs-gap-columns > div + div { padding: 8px 0 0; border-top: 1px solid var(--border); border-left: 0; }
+  .ncs-roadmap li { grid-template-columns: 18px minmax(0, 1fr); }
+  .ncs-importance { grid-column: 2; text-align: left; }
   .workspace-footer { flex-direction: column; gap: 7px; }
   .dialog-panel { padding: 17px; }
   .dialog-metrics .metric-cell { padding: 8px; }
