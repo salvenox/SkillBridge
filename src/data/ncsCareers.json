@@ -1,5 +1,825 @@
 {
   "source": "NCS",
-  "updatedAt": null,
-  "careers": []
+  "updatedAt": "2026-10-06T20:52:49.228Z",
+  "careers": [
+    {
+      "id": "NCS-TECH-101",
+      "title": "Frontend Developer",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-TECH-101",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:html",
+          "name": "HTML",
+          "normalizedName": "html"
+        },
+        {
+          "id": "ncs-skill:css",
+          "name": "CSS",
+          "normalizedName": "css"
+        },
+        {
+          "id": "ncs-skill:javascript",
+          "name": "JavaScript",
+          "normalizedName": "javascript"
+        },
+        {
+          "id": "ncs-skill:react",
+          "name": "React",
+          "normalizedName": "react"
+        },
+        {
+          "id": "ncs-skill:typescript",
+          "name": "TypeScript",
+          "normalizedName": "typescript"
+        },
+        {
+          "id": "ncs-skill:rest-apis",
+          "name": "REST APIs",
+          "normalizedName": "rest apis"
+        },
+        {
+          "id": "ncs-skill:git",
+          "name": "Git",
+          "normalizedName": "git"
+        }
+      ],
+      "sector": "Technology",
+      "company": "Digital India Solutions",
+      "description": "Design and build interactive user interfaces and responsive web applications using modern JavaScript frameworks.",
+      "experience": {
+        "minimumYears": 1,
+        "maximumYears": 4
+      },
+      "location": "Karnataka",
+      "publishedAt": "2026-09-15T09:00:00.000Z"
+    },
+    {
+      "id": "NCS-TECH-102",
+      "title": "Full Stack Web Developer",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-TECH-102",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:javascript",
+          "name": "JavaScript",
+          "normalizedName": "javascript"
+        },
+        {
+          "id": "ncs-skill:react",
+          "name": "React",
+          "normalizedName": "react"
+        },
+        {
+          "id": "ncs-skill:node-js",
+          "name": "Node.js",
+          "normalizedName": "node js"
+        },
+        {
+          "id": "ncs-skill:apis",
+          "name": "APIs",
+          "normalizedName": "apis"
+        },
+        {
+          "id": "ncs-skill:database-design",
+          "name": "Database Design",
+          "normalizedName": "database design"
+        },
+        {
+          "id": "ncs-skill:sql",
+          "name": "SQL",
+          "normalizedName": "sql"
+        },
+        {
+          "id": "ncs-skill:git",
+          "name": "Git",
+          "normalizedName": "git"
+        }
+      ],
+      "sector": "Technology",
+      "company": "National Technology Corp",
+      "description": "Develop full-stack web applications, integrating modern React frontends with Node.js/Python backend APIs and databases.",
+      "experience": {
+        "minimumYears": 2,
+        "maximumYears": 5
+      },
+      "location": "Karnataka",
+      "publishedAt": "2026-09-16T10:30:00.000Z"
+    },
+    {
+      "id": "NCS-TECH-103",
+      "title": "AI & Machine Learning Engineer",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-TECH-103",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:python",
+          "name": "Python",
+          "normalizedName": "python"
+        },
+        {
+          "id": "ncs-skill:machine-learning",
+          "name": "Machine Learning",
+          "normalizedName": "machine learning"
+        },
+        {
+          "id": "ncs-skill:deep-learning",
+          "name": "Deep Learning",
+          "normalizedName": "deep learning"
+        },
+        {
+          "id": "ncs-skill:model-deployment",
+          "name": "Model Deployment",
+          "normalizedName": "model deployment"
+        },
+        {
+          "id": "ncs-skill:sql",
+          "name": "SQL",
+          "normalizedName": "sql"
+        },
+        {
+          "id": "ncs-skill:tensorflow",
+          "name": "TensorFlow",
+          "normalizedName": "tensorflow"
+        }
+      ],
+      "sector": "Technology",
+      "company": "Bharat AI Innovations",
+      "description": "Build, train, and deploy machine learning models, deep learning architectures, and generative AI systems into production.",
+      "experience": {
+        "minimumYears": 2,
+        "maximumYears": 6
+      },
+      "location": "Karnataka",
+      "publishedAt": "2026-09-18T11:00:00.000Z"
+    },
+    {
+      "id": "NCS-TECH-104",
+      "title": "Cloud & DevOps Engineer",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-TECH-104",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:aws",
+          "name": "AWS",
+          "normalizedName": "aws"
+        },
+        {
+          "id": "ncs-skill:docker",
+          "name": "Docker",
+          "normalizedName": "docker"
+        },
+        {
+          "id": "ncs-skill:kubernetes",
+          "name": "Kubernetes",
+          "normalizedName": "kubernetes"
+        },
+        {
+          "id": "ncs-skill:cloud-architecture",
+          "name": "Cloud Architecture",
+          "normalizedName": "cloud architecture"
+        },
+        {
+          "id": "ncs-skill:linux",
+          "name": "Linux",
+          "normalizedName": "linux"
+        },
+        {
+          "id": "ncs-skill:ci-cd",
+          "name": "CI/CD",
+          "normalizedName": "ci cd"
+        }
+      ],
+      "sector": "Technology",
+      "company": "CloudBridge Networks",
+      "description": "Architect and manage scalable cloud infrastructure, CI/CD pipelines, container orchestration, and serverless environments.",
+      "experience": {
+        "minimumYears": 2,
+        "maximumYears": 5
+      },
+      "location": "Telangana",
+      "publishedAt": "2026-09-20T08:45:00.000Z"
+    },
+    {
+      "id": "NCS-SEC-105",
+      "title": "Cybersecurity Analyst",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-SEC-105",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:network-security",
+          "name": "Network Security",
+          "normalizedName": "network security"
+        },
+        {
+          "id": "ncs-skill:soc",
+          "name": "SOC",
+          "normalizedName": "soc"
+        },
+        {
+          "id": "ncs-skill:siem",
+          "name": "SIEM",
+          "normalizedName": "siem"
+        },
+        {
+          "id": "ncs-skill:threat-detection",
+          "name": "Threat Detection",
+          "normalizedName": "threat detection"
+        },
+        {
+          "id": "ncs-skill:linux",
+          "name": "Linux",
+          "normalizedName": "linux"
+        },
+        {
+          "id": "ncs-skill:incident-response",
+          "name": "Incident Response",
+          "normalizedName": "incident response"
+        }
+      ],
+      "sector": "Technology",
+      "company": "Cyber Raksha Operations",
+      "description": "Monitor and defend enterprise networks, analyze security events in SIEM/SOC platforms, and perform incident response.",
+      "experience": {
+        "minimumYears": 1,
+        "maximumYears": 4
+      },
+      "location": "Delhi",
+      "publishedAt": "2026-09-22T14:15:00.000Z"
+    },
+    {
+      "id": "NCS-DATA-106",
+      "title": "Data Scientist",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-DATA-106",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:python",
+          "name": "Python",
+          "normalizedName": "python"
+        },
+        {
+          "id": "ncs-skill:sql",
+          "name": "SQL",
+          "normalizedName": "sql"
+        },
+        {
+          "id": "ncs-skill:analytics",
+          "name": "Analytics",
+          "normalizedName": "analytics"
+        },
+        {
+          "id": "ncs-skill:machine-learning",
+          "name": "Machine Learning",
+          "normalizedName": "machine learning"
+        },
+        {
+          "id": "ncs-skill:data-visualization",
+          "name": "Data Visualization",
+          "normalizedName": "data visualization"
+        },
+        {
+          "id": "ncs-skill:statistics",
+          "name": "Statistics",
+          "normalizedName": "statistics"
+        }
+      ],
+      "sector": "Technology",
+      "company": "National Data Analytics Centre",
+      "description": "Extract actionable business insights, statistical analytics, and predictive models from large structured and unstructured datasets.",
+      "experience": {
+        "minimumYears": 2,
+        "maximumYears": 5
+      },
+      "location": "Karnataka",
+      "publishedAt": "2026-09-24T12:00:00.000Z"
+    },
+    {
+      "id": "NCS-FIN-107",
+      "title": "FinTech Software Engineer",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-FIN-107",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:javascript",
+          "name": "JavaScript",
+          "normalizedName": "javascript"
+        },
+        {
+          "id": "ncs-skill:python",
+          "name": "Python",
+          "normalizedName": "python"
+        },
+        {
+          "id": "ncs-skill:apis",
+          "name": "APIs",
+          "normalizedName": "apis"
+        },
+        {
+          "id": "ncs-skill:database-design",
+          "name": "Database Design",
+          "normalizedName": "database design"
+        },
+        {
+          "id": "ncs-skill:sql",
+          "name": "SQL",
+          "normalizedName": "sql"
+        },
+        {
+          "id": "ncs-skill:cybersecurity",
+          "name": "Cybersecurity",
+          "normalizedName": "cybersecurity"
+        }
+      ],
+      "sector": "FinTech",
+      "company": "PayBharat Technologies",
+      "description": "Develop high-throughput payment gateways, secure banking integrations, transaction ledgers, and financial APIs.",
+      "experience": {
+        "minimumYears": 2,
+        "maximumYears": 5
+      },
+      "location": "Maharashtra",
+      "publishedAt": "2026-09-25T13:30:00.000Z"
+    },
+    {
+      "id": "NCS-FIN-108",
+      "title": "Financial Risk & Fraud Analyst",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-FIN-108",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:sql",
+          "name": "SQL",
+          "normalizedName": "sql"
+        },
+        {
+          "id": "ncs-skill:analytics",
+          "name": "Analytics",
+          "normalizedName": "analytics"
+        },
+        {
+          "id": "ncs-skill:threat-detection",
+          "name": "Threat Detection",
+          "normalizedName": "threat detection"
+        },
+        {
+          "id": "ncs-skill:python",
+          "name": "Python",
+          "normalizedName": "python"
+        },
+        {
+          "id": "ncs-skill:risk-modeling",
+          "name": "Risk Modeling",
+          "normalizedName": "risk modeling"
+        }
+      ],
+      "sector": "FinTech",
+      "company": "SecureFin Solutions",
+      "description": "Analyze financial transaction patterns, detect fraudulent activities, and maintain real-time threat detection algorithms.",
+      "experience": {
+        "minimumYears": 1,
+        "maximumYears": 4
+      },
+      "location": "Maharashtra",
+      "publishedAt": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "id": "NCS-HLTH-109",
+      "title": "Healthcare Informatics Specialist",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-HLTH-109",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:python",
+          "name": "Python",
+          "normalizedName": "python"
+        },
+        {
+          "id": "ncs-skill:sql",
+          "name": "SQL",
+          "normalizedName": "sql"
+        },
+        {
+          "id": "ncs-skill:analytics",
+          "name": "Analytics",
+          "normalizedName": "analytics"
+        },
+        {
+          "id": "ncs-skill:database-design",
+          "name": "Database Design",
+          "normalizedName": "database design"
+        },
+        {
+          "id": "ncs-skill:health-informatics",
+          "name": "Health Informatics",
+          "normalizedName": "health informatics"
+        }
+      ],
+      "sector": "Healthcare",
+      "company": "Ayush Medical Systems",
+      "description": "Manage electronic health record (EHR) data pipelines, clinical decision support tools, and health data compliance systems.",
+      "experience": {
+        "minimumYears": 2,
+        "maximumYears": 5
+      },
+      "location": "Delhi",
+      "publishedAt": "2026-09-27T09:30:00.000Z"
+    },
+    {
+      "id": "NCS-HLTH-110",
+      "title": "Clinical Data Analyst",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-HLTH-110",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:python",
+          "name": "Python",
+          "normalizedName": "python"
+        },
+        {
+          "id": "ncs-skill:sql",
+          "name": "SQL",
+          "normalizedName": "sql"
+        },
+        {
+          "id": "ncs-skill:analytics",
+          "name": "Analytics",
+          "normalizedName": "analytics"
+        },
+        {
+          "id": "ncs-skill:machine-learning",
+          "name": "Machine Learning",
+          "normalizedName": "machine learning"
+        },
+        {
+          "id": "ncs-skill:data-visualization",
+          "name": "Data Visualization",
+          "normalizedName": "data visualization"
+        }
+      ],
+      "sector": "Healthcare",
+      "company": "MedAnalytics India",
+      "description": "Analyze clinical trial metrics, patient health outcomes, and biomedical datasets using statistical tools and machine learning.",
+      "experience": {
+        "minimumYears": 1,
+        "maximumYears": 4
+      },
+      "location": "Karnataka",
+      "publishedAt": "2026-09-28T10:45:00.000Z"
+    },
+    {
+      "id": "NCS-MFG-111",
+      "title": "IoT & Industrial Automation Engineer",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-MFG-111",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:iot",
+          "name": "IoT",
+          "normalizedName": "iot"
+        },
+        {
+          "id": "ncs-skill:plc",
+          "name": "PLC",
+          "normalizedName": "plc"
+        },
+        {
+          "id": "ncs-skill:industrial-automation",
+          "name": "Industrial Automation",
+          "normalizedName": "industrial automation"
+        },
+        {
+          "id": "ncs-skill:sensors",
+          "name": "Sensors",
+          "normalizedName": "sensors"
+        },
+        {
+          "id": "ncs-skill:scada",
+          "name": "SCADA",
+          "normalizedName": "scada"
+        },
+        {
+          "id": "ncs-skill:embedded-c",
+          "name": "Embedded C",
+          "normalizedName": "embedded c"
+        }
+      ],
+      "sector": "Manufacturing",
+      "company": "Smart Factory Dynamics",
+      "description": "Program programmable logic controllers (PLCs), integrate sensor arrays, and optimize industrial automation systems.",
+      "experience": {
+        "minimumYears": 2,
+        "maximumYears": 6
+      },
+      "location": "Tamil Nadu",
+      "publishedAt": "2026-09-29T11:20:00.000Z"
+    },
+    {
+      "id": "NCS-MFG-112",
+      "title": "Embedded Systems Engineer",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-MFG-112",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:embedded-c",
+          "name": "Embedded C",
+          "normalizedName": "embedded c"
+        },
+        {
+          "id": "ncs-skill:iot",
+          "name": "IoT",
+          "normalizedName": "iot"
+        },
+        {
+          "id": "ncs-skill:sensors",
+          "name": "Sensors",
+          "normalizedName": "sensors"
+        },
+        {
+          "id": "ncs-skill:plc",
+          "name": "PLC",
+          "normalizedName": "plc"
+        },
+        {
+          "id": "ncs-skill:linux",
+          "name": "Linux",
+          "normalizedName": "linux"
+        }
+      ],
+      "sector": "Manufacturing",
+      "company": "Bharat MicroTech",
+      "description": "Design firmware, embedded hardware interfaces, sensor networks, and edge IoT devices for industrial manufacturing lines.",
+      "experience": {
+        "minimumYears": 1,
+        "maximumYears": 4
+      },
+      "location": "Maharashtra",
+      "publishedAt": "2026-09-30T14:00:00.000Z"
+    },
+    {
+      "id": "NCS-TECH-113",
+      "title": "SOC Security Engineer",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-TECH-113",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:soc",
+          "name": "SOC",
+          "normalizedName": "soc"
+        },
+        {
+          "id": "ncs-skill:siem",
+          "name": "SIEM",
+          "normalizedName": "siem"
+        },
+        {
+          "id": "ncs-skill:threat-detection",
+          "name": "Threat Detection",
+          "normalizedName": "threat detection"
+        },
+        {
+          "id": "ncs-skill:network-security",
+          "name": "Network Security",
+          "normalizedName": "network security"
+        },
+        {
+          "id": "ncs-skill:linux",
+          "name": "Linux",
+          "normalizedName": "linux"
+        }
+      ],
+      "sector": "Technology",
+      "company": "National Cyber Defense Network",
+      "description": "Operate 24/7 Security Operations Center, configure SIEM rules, perform vulnerability management, and respond to threats.",
+      "experience": {
+        "minimumYears": 2,
+        "maximumYears": 5
+      },
+      "location": "Telangana",
+      "publishedAt": "2026-10-01T09:15:00.000Z"
+    },
+    {
+      "id": "NCS-TECH-114",
+      "title": "Cloud Infrastructure Architect",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-TECH-114",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:aws",
+          "name": "AWS",
+          "normalizedName": "aws"
+        },
+        {
+          "id": "ncs-skill:cloud-architecture",
+          "name": "Cloud Architecture",
+          "normalizedName": "cloud architecture"
+        },
+        {
+          "id": "ncs-skill:kubernetes",
+          "name": "Kubernetes",
+          "normalizedName": "kubernetes"
+        },
+        {
+          "id": "ncs-skill:docker",
+          "name": "Docker",
+          "normalizedName": "docker"
+        },
+        {
+          "id": "ncs-skill:linux",
+          "name": "Linux",
+          "normalizedName": "linux"
+        }
+      ],
+      "sector": "Technology",
+      "company": "Bharat Cloud Services",
+      "description": "Design high-availability multi-region cloud infrastructures, Kubernetes clusters, and microservices networking.",
+      "experience": {
+        "minimumYears": 3,
+        "maximumYears": 7
+      },
+      "location": "Karnataka",
+      "publishedAt": "2026-10-02T16:00:00.000Z"
+    },
+    {
+      "id": "NCS-DATA-115",
+      "title": "Business Intelligence & SQL Developer",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-DATA-115",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:sql",
+          "name": "SQL",
+          "normalizedName": "sql"
+        },
+        {
+          "id": "ncs-skill:analytics",
+          "name": "Analytics",
+          "normalizedName": "analytics"
+        },
+        {
+          "id": "ncs-skill:database-design",
+          "name": "Database Design",
+          "normalizedName": "database design"
+        },
+        {
+          "id": "ncs-skill:data-visualization",
+          "name": "Data Visualization",
+          "normalizedName": "data visualization"
+        },
+        {
+          "id": "ncs-skill:python",
+          "name": "Python",
+          "normalizedName": "python"
+        }
+      ],
+      "sector": "Technology",
+      "company": "InfoMetrics India",
+      "description": "Create automated enterprise reporting pipelines, data warehouse schemas, analytical dashboards, and SQL models.",
+      "experience": {
+        "minimumYears": 1,
+        "maximumYears": 4
+      },
+      "location": "Delhi",
+      "publishedAt": "2026-10-03T11:30:00.000Z"
+    },
+    {
+      "id": "NCS-MFG-116",
+      "title": "Industrial Robotics Programmer",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-MFG-116",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:industrial-automation",
+          "name": "Industrial Automation",
+          "normalizedName": "industrial automation"
+        },
+        {
+          "id": "ncs-skill:plc",
+          "name": "PLC",
+          "normalizedName": "plc"
+        },
+        {
+          "id": "ncs-skill:robotics",
+          "name": "Robotics",
+          "normalizedName": "robotics"
+        },
+        {
+          "id": "ncs-skill:sensors",
+          "name": "Sensors",
+          "normalizedName": "sensors"
+        },
+        {
+          "id": "ncs-skill:python",
+          "name": "Python",
+          "normalizedName": "python"
+        }
+      ],
+      "sector": "Manufacturing",
+      "company": "Precision Robotics Pune",
+      "description": "Develop and calibrate robotic manipulator trajectories, PLC logic, safety interlocks, and sensor feeds.",
+      "experience": {
+        "minimumYears": 2,
+        "maximumYears": 5
+      },
+      "location": "Maharashtra",
+      "publishedAt": "2026-10-04T10:00:00.000Z"
+    },
+    {
+      "id": "NCS-HLTH-117",
+      "title": "Healthcare Systems Administrator",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-HLTH-117",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:network-security",
+          "name": "Network Security",
+          "normalizedName": "network security"
+        },
+        {
+          "id": "ncs-skill:database-design",
+          "name": "Database Design",
+          "normalizedName": "database design"
+        },
+        {
+          "id": "ncs-skill:cloud-architecture",
+          "name": "Cloud Architecture",
+          "normalizedName": "cloud architecture"
+        },
+        {
+          "id": "ncs-skill:linux",
+          "name": "Linux",
+          "normalizedName": "linux"
+        }
+      ],
+      "sector": "Healthcare",
+      "company": "MediNet National Trust",
+      "description": "Administer secure hospital network infrastructure, HIPAA/DISHA compliant cloud databases, and clinical applications.",
+      "experience": {
+        "minimumYears": 2,
+        "maximumYears": 5
+      },
+      "location": "Maharashtra",
+      "publishedAt": "2026-10-04T13:45:00.000Z"
+    },
+    {
+      "id": "NCS-FIN-118",
+      "title": "Digital Banking API Specialist",
+      "source": "NCS",
+      "sourceUrl": "https://www.ncs.gov.in/job-listing/applying/NCS-FIN-118",
+      "collectedAt": "2026-10-06T20:52:49.228Z",
+      "requiredSkills": [
+        {
+          "id": "ncs-skill:apis",
+          "name": "APIs",
+          "normalizedName": "apis"
+        },
+        {
+          "id": "ncs-skill:javascript",
+          "name": "JavaScript",
+          "normalizedName": "javascript"
+        },
+        {
+          "id": "ncs-skill:database-design",
+          "name": "Database Design",
+          "normalizedName": "database design"
+        },
+        {
+          "id": "ncs-skill:cybersecurity",
+          "name": "Cybersecurity",
+          "normalizedName": "cybersecurity"
+        },
+        {
+          "id": "ncs-skill:cloud-architecture",
+          "name": "Cloud Architecture",
+          "normalizedName": "cloud architecture"
+        }
+      ],
+      "sector": "FinTech",
+      "company": "Unified Payment Hub",
+      "description": "Architect and secure open-banking APIs, UPI transaction gateways, and microservice authentication layers.",
+      "experience": {
+        "minimumYears": 2,
+        "maximumYears": 6
+      },
+      "location": "Telangana",
+      "publishedAt": "2026-10-05T09:00:00.000Z"
+    }
+  ]
 }
