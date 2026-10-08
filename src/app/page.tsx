@@ -218,7 +218,7 @@ export default function Home() {
         <a className="brand-lockup" href="#discover" onClick={() => setActiveStage("Discover")}>
           <span className="brand-mark" aria-hidden="true">SB</span><span className="brand-copy"><strong>SkillBridge</strong><span>Workforce intelligence</span></span>
         </a>
-        <div className="topbar-context"><span className="program-label">SMART INDIA HACKATHON 2026</span><span className="dataset-state"><i /> Demonstration dataset</span></div>
+        <div className="topbar-context"><span className="program-label">SMART INDIA HACKATHON 2026</span><span className="dataset-state"><i /> NCS local career catalog</span></div>
         <nav className="stage-nav" aria-label="Dashboard workflow">
           {stages.map((stage, index) => <button key={stage.id} className={activeStage === stage.label ? "stage-link is-active" : "stage-link"} onClick={() => scrollTo(stage.id, stage.label)}><span className="stage-number">0{index + 1}</span>{stage.label}</button>)}
         </nav>
@@ -234,14 +234,14 @@ export default function Home() {
 
       <div className="content-wrap">
         <section id="discover" className="section-block discover-section">
-          <div className="page-heading"><div><p className="eyebrow">01 / Discover</p><h1>Workforce intelligence</h1><p className="heading-summary">A decision workspace for aligning institutional training with employer skill demand.</p></div>
+          <div className="page-heading"><div><p className="eyebrow">01 / Discover</p><h1>Workforce intelligence</h1><p className="heading-summary">Compare your current skills with NCS career requirements; O*NET provides optional occupation enrichment.</p></div>
             <div className="heading-meta"><span className="meta-label">CURRENT MARKET</span><strong>{city}</strong><span>{selectedIndustry ?? sector} · {filteredSkills.length} skills in view</span></div>
           </div>
           <div className="overview-strip" aria-label="Current market summary">
-            <Metric label="Mean demand index" value={`${averageDemand}`} context="Legacy demonstration baseline; NCS career requirements are shown below when authorized records are loaded." />
-            <Metric label="Mean talent index" value={`${averageTalent}`} context="Demonstration estimate, not an NCS or O*NET talent-supply measure." />
-            <Metric label="Mean gap" value={`${averageGap}`} context="Mean of per-skill demand less talent, floored at zero." />
-            <Metric label="Skills assessed" value={`${filteredSkills.length}`} context="Skills remaining after market, sector and search filters." />
+            <Metric label="Demo mean demand index" value={`${averageDemand}`} context="Legacy SkillBridge estimate; not an NCS demand statistic." />
+            <Metric label="Demo mean talent index" value={`${averageTalent}`} context="Legacy estimate, not an NCS or O*NET talent-supply measure." />
+            <Metric label="Demo mean gap" value={`${averageGap}`} context="Legacy estimate: mean demand less talent, floored at zero." />
+            <Metric label="Demo skills assessed" value={`${filteredSkills.length}`} context="Legacy demonstration skills after filters; not an NCS career count." />
           </div>
           <div className="sector-lens">
             <span className="meta-label">INDUSTRY LENS</span>
@@ -250,8 +250,8 @@ export default function Home() {
           </div>
           <div className="discovery-grid">
             <section className="panel skill-panel" aria-labelledby="skill-chart-title">
-              <div className="panel-heading"><div><p className="panel-kicker">Demand and supply</p><h2 id="skill-chart-title">Skills in focus</h2></div><span className="unit-note">Index · 0–100</span></div>
-              <div className="chart-legend"><span><i className="legend-demand" /> Employer demand</span><span><i className="legend-talent" /> Talent availability</span></div>
+              <div className="panel-heading"><div><p className="panel-kicker">Legacy demonstration metrics</p><h2 id="skill-chart-title">Skills in focus</h2></div><span className="unit-note">Demo index · 0–100</span></div>
+              <div className="chart-legend"><span><i className="legend-demand" /> Demo employer demand</span><span><i className="legend-talent" /> Demo talent availability</span></div>
               <div className="skill-chart">{filteredSkills.map((skill) => {
                 const gap = skill.gap;
                 return <button className="skill-row" key={skill.id} onClick={() => setSelectedSkillId(skill.id)}>
@@ -262,7 +262,7 @@ export default function Home() {
               })}{filteredSkills.length === 0 && <p className="empty-state">No skills match the current filters.</p>}</div>
               <div className="api-intelligence" aria-live="polite">
                 <div className="api-intelligence-heading"><strong>NCS career and skill requirements</strong><span>{currentCareerCatalog ? `${currentCareerCatalog.careers.length} records` : "NCS source"}</span></div>
-                <p className="api-state-text">Career requirements are sourced from NCS records in the local catalog. No portal scraping is performed by user searches.</p>
+                <p className="api-state-text">NCS is the primary career-requirements source. Your current skills are compared with the selected NCS career&apos;s required skills; O*NET is optional enrichment only. Requirements come from the local NCS catalog; user searches do not scrape the NCS portal.</p>
                 <a className="api-provider-link" href="https://www.ncs.gov.in/" target="_blank" rel="noreferrer">Source: National Career Service (NCS)</a>
                 <a className="api-provider-link" href="https://www.ncs.gov.in/job-listing" target="_blank" rel="noreferrer">Source: National Career Service (NCS)</a>
                 {(careersState.status === "idle" || careersState.status === "loading" || (careersState.status === "success" && !currentCareerCatalog)) && <p className="api-state-text">Loading available NCS career records...</p>}
@@ -283,7 +283,7 @@ export default function Home() {
                   </>}
                 </div>}
                 <div className="onet-intelligence">
-                  <div className="api-intelligence-heading"><strong>O*NET occupation enrichment</strong><span>{onetKeyword || "Select an NCS career"}</span></div>
+                  <div className="api-intelligence-heading"><strong>O*NET optional occupation enrichment</strong><span>{onetKeyword || "Select an NCS career"}</span></div>
                   {(onetState.status === "loading" || (onetKeyword.length >= 2 && !currentOnetResponse && onetState.status !== "error")) && <p className="api-state-text">Matching occupation and retrieving O*NET skills...</p>}
                   {onetState.status === "error" && <p className="api-state-text api-state-error">Occupation intelligence is temporarily unavailable. {onetState.message}</p>}
                   {currentOnetResponse && currentOnetResponse.occupations.length === 0 && <p className="api-state-text">No matching O*NET occupation found for “{currentOnetResponse.keyword}”.</p>}
@@ -299,7 +299,7 @@ export default function Home() {
               </div>
             </section>
             <section className="panel region-panel" aria-labelledby="regional-title">
-              <div className="panel-heading"><div><p className="panel-kicker">Regional intelligence</p><h2 id="regional-title">Market coverage</h2></div><span className="unit-note">6 city markets</span></div>
+              <div className="panel-heading"><div><p className="panel-kicker">Legacy demo regional scenario</p><h2 id="regional-title">Market coverage</h2></div><span className="unit-note">6 city markets</span></div>
               <p className="region-intro">Select a market to scope the skills assessment.</p>
               <div className="region-list">{regionalScenarios.map((location) => <button className={city === location.name ? "region-row is-selected" : "region-row"} key={location.name} onClick={() => setCity(location.name)}>
                 <span className="region-name"><strong>{location.name}</strong><small>{location.region} region</small></span><span className="region-track"><i style={{ width: `${location.demand}%` }} /></span><span className="region-score">{location.demand}</span>
@@ -309,18 +309,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="diagnose" className="section-block diagnose-section"><SectionHeading number="02" title="Diagnose skill gaps" description="Prioritise skills where employer demand most exceeds estimated talent availability." />
+        <section id="diagnose" className="section-block diagnose-section"><SectionHeading number="02" title="Diagnose skill gaps" description="Review legacy demonstration estimates; these are not NCS-wide demand or talent statistics." />
           <div className="diagnose-layout"><div className="panel table-panel">
-            <div className="table-heading"><div><strong>Priority assessment</strong><span>Ranked by demand–talent difference</span></div><span className="unit-note">{prioritySkills.length} priority skills</span></div>
-            <div className="table-scroll"><table><thead><tr><th scope="col">Skill</th><th scope="col">Demo demand</th><th scope="col">Demo talent</th><th scope="col">Gap</th><th scope="col">Demo growth</th><th scope="col">Priority</th></tr></thead><tbody>
+            <div className="table-heading"><div><strong>Legacy demo priority assessment</strong><span>Ranked by demo demand–talent difference</span></div><span className="unit-note">{prioritySkills.length} demo priority skills</span></div>
+            <div className="table-scroll"><table><thead><tr><th scope="col">Skill</th><th scope="col">Demo demand</th><th scope="col">Demo talent</th><th scope="col">Demo gap</th><th scope="col">Demo growth</th><th scope="col">Demo priority</th></tr></thead><tbody>
               {prioritySkills.map((skill) => <tr key={skill.id} onClick={() => setSelectedSkillId(skill.id)} tabIndex={0} onKeyDown={(event) => { if (event.key === "Enter") setSelectedSkillId(skill.id); }}>
                 <th scope="row"><button className="table-skill-button" onClick={() => setSelectedSkillId(skill.id)}>{skill.name}<small>{skill.category}</small></button></th><td>{skill.demand}</td><td>{skill.talent}</td><td><strong className="gap-number">{skill.gap}</strong></td><td className="growth-cell">{skill.growth === null ? "N/A" : `+${skill.growth}%`}</td><td><span className={`priority-tag priority-${skill.priority.toLowerCase()}`}>{skill.priority}</span></td>
               </tr>)}{prioritySkills.length === 0 && <tr><td colSpan={6} className="empty-state">No priority skills match the current filters.</td></tr>}
-            </tbody></table></div><p className="panel-footnote">This table is the retained demonstration baseline. NCS career-specific matched/missing requirements are calculated separately in Recommend from the selected record.</p>
-          </div><aside className="diagnosis-note"><p className="panel-kicker">Interpretation</p><h3>{averageGap > 25 ? "Training capacity needs attention" : "Monitor emerging mismatches"}</h3><p>The current view shows a mean gap of <strong>{averageGap} index points</strong> across {summary.skillCount} skills, with {summary.priorityCount} rated high or critical. Use the ranked list to identify where curriculum updates or employer-led training could have the greatest effect.</p><button className="text-button" onClick={() => scrollTo("recommend", "Recommend")}>Review interventions <span aria-hidden="true">→</span></button></aside></div>
+            </tbody></table></div><p className="panel-footnote">This retained demonstration baseline is separate from NCS. NCS career-specific matched/missing requirements are calculated in Recommend from the selected NCS record.</p>
+          </div><aside className="diagnosis-note"><p className="panel-kicker">Legacy demo interpretation</p><h3>{averageGap > 25 ? "Training capacity needs attention" : "Monitor emerging mismatches"}</h3><p>The legacy demo view shows a mean gap of <strong>{averageGap} index points</strong> across {summary.skillCount} skills, with {summary.priorityCount} rated high or critical. These are not NCS statistics. Use the selected NCS career comparison to review actual listed requirements.</p><button className="text-button" onClick={() => scrollTo("recommend", "Recommend")}>Review interventions <span aria-hidden="true">→</span></button></aside></div>
         </section>
 
-        <section id="recommend" className="section-block recommend-section"><SectionHeading number="03" title="Recommend interventions" description="Training options are ordered by their match to the selected skill profile." />
+        <section id="recommend" className="section-block recommend-section"><SectionHeading number="03" title="Recommend interventions" description="Sample training options use the legacy demo skill profile; NCS career requirements are compared separately above." />
           {selectedCareer && ncsSkillMatch && <div className="ncs-gap-summary">
             <div className="table-heading"><div><strong>NCS career skill comparison · {selectedCareer.title}</strong><span>Exact normalized name/alias matches; no fuzzy matches.</span></div><span className="unit-note">{ncsSkillMatch.matched.length} matched · {ncsSkillMatch.missing.length} missing</span></div>
             <div className="ncs-gap-columns">
@@ -341,11 +341,11 @@ export default function Home() {
             <div className="measure-indicators"><MeasureLine label="Demo employer demand" value={averageDemand} detail="Mean demonstration index across visible skills" tone="demand" /><MeasureLine label="Demo talent availability" value={averageTalent} detail="Mean demonstration index across visible skills" tone="talent" /><MeasureLine label="Demo unmet demand" value={averageGap} detail="Mean demonstration demand–talent difference" tone="gap" /><div className="measurement-rule"><strong>Measurement rule</strong><span>These retained market indicators use demonstration records. Career progress above uses only NCS-listed required skills and your session skill list.</span></div></div>
           </div>
         </section>
-        <footer className="workspace-footer"><span><strong>SkillBridge</strong> · Smart India Hackathon 2026</span><span>Demonstration dataset · Replace with validated institutional and employer data before operational use.</span></footer>
+        <footer className="workspace-footer"><span><strong>SkillBridge</strong> · Smart India Hackathon 2026</span><span>NCS local catalog = career requirements · O*NET = optional enrichment · Dashboard market metrics = legacy demo estimates.</span></footer>
       </div>
 
       {selectedSkill && <Dialog title={selectedSkill.name} eyebrow={selectedSkill.category} onClose={() => setSelectedSkillId(null)}>
-        <p className="dialog-description">{describeSkillGap(selectedSkill)}</p><p className="dialog-description">{selectedSkill.description}</p><div className="dialog-metrics"><Metric label="Demand index" value={`${selectedSkill.demand}`} context={selectedSkill.demandSource} /><Metric label="Talent index" value={`${selectedSkill.talent}`} context="Demonstration estimate; not an API-measured India talent supply." /><Metric label="Skill gap" value={`${selectedSkill.gap}`} context="Demand less talent availability." /><Metric label="Demand growth" value={selectedSkill.growth === null ? "N/A" : `${selectedSkill.growth}%`} context={selectedSkill.growth === null ? "Not supplied for this API-derived skill." : "Demonstration growth estimate."} /><Metric label="Priority" value={selectedSkill.priority} context="Derived from gap and available growth signal." /><Metric label={selectedSkill.importance !== undefined ? "O*NET importance" : "Relevant sectors"} value={selectedSkill.importance !== undefined ? `${selectedSkill.importance}` : selectedSkill.sectors.join(", ") || "Not mapped"} context={selectedSkill.importance !== undefined ? "Importance returned by O*NET." : "Sector mapping in the SkillBridge demonstration dataset."} /></div>
+        <p className="dialog-description">{describeSkillGap(selectedSkill)}</p><p className="dialog-description">{selectedSkill.description}</p><div className="dialog-metrics"><Metric label="Demo demand index" value={`${selectedSkill.demand}`} context={selectedSkill.demandSource} /><Metric label="Demo talent index" value={`${selectedSkill.talent}`} context="Demonstration estimate; not an API-measured India talent supply." /><Metric label="Demo skill gap" value={`${selectedSkill.gap}`} context="Legacy demonstration demand less talent availability." /><Metric label="Demo demand growth" value={selectedSkill.growth === null ? "N/A" : `${selectedSkill.growth}%`} context={selectedSkill.growth === null ? "Not supplied for this API-derived skill." : "Legacy demonstration growth estimate."} /><Metric label="Demo priority" value={selectedSkill.priority} context="Derived from the legacy demonstration gap and growth signal." /><Metric label={selectedSkill.importance !== undefined ? "O*NET importance" : "Relevant sectors"} value={selectedSkill.importance !== undefined ? `${selectedSkill.importance}` : selectedSkill.sectors.join(", ") || "Not mapped"} context={selectedSkill.importance !== undefined ? "Importance returned by O*NET." : "Legacy SkillBridge sector mapping; not from NCS."} /></div>
         <div className="recommendation-note"><strong>Suggested response</strong><p>{selectedSkill.priority === "Critical" ? `Consider targeted training and employer-aligned practice for ${selectedSkill.name}. Validate this priority against local placement and vacancy data.` : selectedSkill.priority === "High" ? `Build practical training capacity for ${selectedSkill.name} and review the gap as verified local data becomes available.` : `Maintain practical industry exposure for ${selectedSkill.name} and monitor its ${selectedSkill.growth}% demonstration growth signal.`}</p></div><button className="primary-action" onClick={() => { setSelectedSkillId(null); scrollTo("recommend", "Recommend"); }}>View matched programs <span aria-hidden="true">→</span></button>
       </Dialog>}
       {selectedProgram && <Dialog title={selectedProgram.title} eyebrow="Program recommendation" onClose={() => setSelectedProgramId(null)}>
