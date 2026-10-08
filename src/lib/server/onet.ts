@@ -64,6 +64,24 @@ async function readOnetResponse(response: Response): Promise<unknown> {
   }
 }
 
+function scoreOccupationCandidate(keyword: string, candidateTitle: string): number {
+  const normKeyword = keyword.toLocaleLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  const normTitle = candidateTitle.toLocaleLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+
+  if (normKeyword === normTitle) return 100;
+  if (normTitle.includes(normKeyword) || normKeyword.includes(normTitle)) return 80;
+
+  const keywordTokens = new Set(normKeyword.split(/\s+/).filter(Boolean));
+  const titleTokens = new Set(normTitle.split(/\s+/).filter(Boolean));
+
+  let overlap = 0;
+  for (const token of keywordTokens) {
+    if (titleTokens.has(token)) overlap += 1;
+  }
+
+  return overlap > 0 ? (overlap / keywordTokens.size) * 50 : 0;
+}
+
 export async function searchOnetOccupations(keyword: string): Promise<OnetResponse> {
   const apiKey = process.env.ONET_API_KEY;
   if (!apiKey) {
@@ -83,6 +101,8 @@ export async function searchOnetOccupations(keyword: string): Promise<OnetRespon
   if (matches.length === 0) {
     return { source: "O*NET Web Services", attribution: ONET_ATTRIBUTION, keyword, occupations: [] };
   }
+
+  matches.sort((left, right) => scoreOccupationCandidate(keyword, right.title) - scoreOccupationCandidate(keyword, left.title));
 
   const match = matches[0];
   const occupationUrl = new URL(`/online/occupations/${encodeURIComponent(match.code)}`, ONET_API_ROOT);

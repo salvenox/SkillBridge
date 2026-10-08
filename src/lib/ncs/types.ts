@@ -56,4 +56,6 @@ export type RoadmapStep = {
   order: number;
   skill: NcsSkill;
   reason: string;
+  missingReason?: string;
+  positionReason?: string;
 };

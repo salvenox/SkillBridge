@@ -18,7 +18,11 @@ export const metadata: Metadata = {
     "A workforce intelligence workspace for discovering skill demand, diagnosing gaps, recommending interventions and measuring progress.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="en"

@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import catalogData from "@/data/ncsCareers.json";
 import { matchesNcsCareerLocation } from "@/lib/ncs/locationMatching";
+import { normalizeSkillName } from "@/lib/ncs/skillNormalization";
 import type { NcsCareer, NcsCareerCatalog } from "@/lib/ncs/types";
 
 const catalog = catalogData as NcsCareerCatalog;
@@ -22,9 +23,10 @@ function matchesSector(careerSector: string | undefined, sectorFilter: string): 
 
 function matchesQuery(career: NcsCareer, query: string): boolean {
   if (!query) return true;
+  const normalizedQuery = normalizeSkillName(query);
   const skillNames = career.requiredSkills.map((skill) => `${skill.name} ${skill.normalizedName}`).join(" ");
   const searchableText = `${career.title} ${career.sector ?? ""} ${career.company ?? ""} ${career.description ?? ""} ${skillNames}`.toLocaleLowerCase();
-  return searchableText.includes(query);
+  return searchableText.includes(query) || (normalizedQuery.length > 0 && searchableText.includes(normalizedQuery));
 }
 
 export async function GET(request: NextRequest): Promise<Response> {

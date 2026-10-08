@@ -56,6 +56,48 @@ function normalizePublishedAt(value: unknown): string | undefined {
   return undefined;
 }
 
+function extractSkillNameFromEntry(entry: unknown): string {
+  if (typeof entry === "string") {
+    const trimmed = entry.trim();
+    if (!trimmed) {
+      throw new Error("Skill entry is an empty string.");
+    }
+    return trimmed;
+  }
+  if (isRecord(entry)) {
+    const candidate =
+      optionalString(entry, "skillName") ??
+      optionalString(entry, "name") ??
+      optionalString(entry, "skill") ??
+      optionalString(entry, "skill_name") ??
+      optionalString(entry, "title");
+    if (candidate) {
+      return candidate;
+    }
+    throw new Error("Structured skill entry missing recognizable name property (e.g. skillName, name, skill).");
+  }
+  throw new Error(`Unsupported skill entry type: expected string or structured skill object, got ${typeof entry}.`);
+}
+
+function extractRequiredSkillNames(rawSkills: unknown): string[] {
+  if (rawSkills === undefined || rawSkills === null) return [];
+  if (typeof rawSkills === "string") {
+    const trimmed = rawSkills.trim();
+    if (!trimmed) return [];
+    return trimmed
+      .split(/[\n,;]+/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+  }
+  if (Array.isArray(rawSkills)) {
+    return rawSkills.map(extractSkillNameFromEntry);
+  }
+  if (isRecord(rawSkills)) {
+    throw new Error("requiredSkills must be an array of skills or a string.");
+  }
+  throw new Error(`Invalid requiredSkills format: expected array or string, got ${typeof rawSkills}.`);
+}
+
 export function normalizeNcsJob(value: unknown, collectedAt = new Date()): NcsCareer {
   if (!isRecord(value)) throw new Error("Record must be a JSON object.");
 
@@ -64,9 +106,7 @@ export function normalizeNcsJob(value: unknown, collectedAt = new Date()): NcsCa
   const title = optionalString(value, "jobTitle");
   if (!id || !title) throw new Error("Record must include the NCS job id and jobTitle.");
 
-  const requiredSkillNames = Array.isArray(value.requiredSkills)
-    ? value.requiredSkills.filter((skill): skill is string => typeof skill === "string")
-    : [];
+  const requiredSkillNames = extractRequiredSkillNames(value.requiredSkills ?? value.skills ?? value.keySkills);
   const publishedAt = normalizePublishedAt(value.createdAt);
   const sourceUrl = `https://www.ncs.gov.in/job-listing/applying/${encodeURIComponent(id)}`;
   const locations = normalizeLocations(value.jobLocations);

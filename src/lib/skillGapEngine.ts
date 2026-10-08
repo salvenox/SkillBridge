@@ -47,7 +47,7 @@ const mean = (values: readonly number[]): number =>
   values.length ? Math.round(values.reduce((total, value) => total + value, 0) / values.length) : 0;
 
 
-export function getPriority(gap: number, growth: number): SkillAssessment["priority"] {
+export function getPriority(gap: number, growth: number | null): SkillAssessment["priority"] {
   if (gap >= 25) return "Critical";
   if (gap >= 15 || (gap >= 10 && growth !== null && growth >= 30)) return "High";
   return "Medium";
@@ -117,7 +117,10 @@ export function describeSkillGap(skill: SkillAssessment): string {
     : "";
 
   if (skill.gap === 0) {
-    return `Estimated talent availability currently meets or exceeds demand. Demonstration demand growth is ${skill.growth}%, so continue monitoring this skill.${sectorContext}`;
+    const growthNote = skill.growth === null
+      ? "continue monitoring this skill."
+      : `Demonstration demand growth is ${skill.growth}%, so continue monitoring this skill.`;
+    return `Estimated talent availability currently meets or exceeds demand. ${growthNote}${sectorContext}`;
   }
 
   const growthSignal = skill.growth === null
@@ -186,7 +189,12 @@ export function compareMarkets(query: Omit<SkillGapQuery, "marketId">): Array<{
 }
 
 export function getMarketId(name: string): MarketId | undefined {
-  return marketProfiles.find((market) => market.name === name)?.id;
+  const normalized = name.trim().toLocaleLowerCase();
+  return marketProfiles.find(
+    (market) =>
+      market.name.toLocaleLowerCase() === normalized ||
+      market.id.toLocaleLowerCase() === normalized
+  )?.id;
 }
 
 export function getMarketName(id: MarketId): string {

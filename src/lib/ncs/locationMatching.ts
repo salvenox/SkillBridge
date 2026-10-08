@@ -2,11 +2,15 @@ import type { NcsCareer } from "./types";
 
 const cityStateMap: Readonly<Record<string, readonly string[]>> = {
   bengaluru: ["karnataka", "bengaluru", "bangalore"],
+  bangalore: ["karnataka", "bengaluru", "bangalore"],
   "delhi ncr": ["delhi", "ncr", "haryana", "uttar pradesh", "noida", "gurugram", "gurgaon"],
+  "delhi-ncr": ["delhi", "ncr", "haryana", "uttar pradesh", "noida", "gurugram", "gurgaon"],
+  delhi: ["delhi", "ncr", "haryana", "uttar pradesh", "noida", "gurugram", "gurgaon"],
   mumbai: ["maharashtra", "mumbai"],
   hyderabad: ["telangana", "hyderabad", "andhra pradesh"],
   pune: ["maharashtra", "pune"],
   chennai: ["tamil nadu", "chennai", "madras"],
+  madras: ["tamil nadu", "chennai", "madras"],
 };
 
 const nationalLocationLabels = new Set(["pan india", "all india", "national", "india"]);
