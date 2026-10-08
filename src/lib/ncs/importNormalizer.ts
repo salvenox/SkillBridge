@@ -23,12 +23,24 @@ function optionalExperience(value: unknown): { minimumYears?: number; maximumYea
     : undefined;
 }
 
-function optionalLocation(value: unknown): string | undefined {
-  if (!Array.isArray(value)) return undefined;
-  const firstLocation = value.find(isRecord);
-  if (!firstLocation) return undefined;
-  const state = optionalString(firstLocation, "state");
-  return state;
+function normalizeLocations(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  const locations: string[] = [];
+  const seen = new Set<string>();
+
+  for (const entry of value) {
+    if (!isRecord(entry)) continue;
+    for (const key of ["state", "city"]) {
+      const location = optionalString(entry, key);
+      if (!location) continue;
+      const normalized = location.toLocaleLowerCase().replace(/\s+/g, " ");
+      if (seen.has(normalized)) continue;
+      seen.add(normalized);
+      locations.push(location);
+    }
+  }
+
+  return locations;
 }
 
 function normalizePublishedAt(value: unknown): string | undefined {
@@ -57,6 +69,7 @@ export function normalizeNcsJob(value: unknown, collectedAt = new Date()): NcsCa
     : [];
   const publishedAt = normalizePublishedAt(value.createdAt);
   const sourceUrl = `https://www.ncs.gov.in/job-listing/applying/${encodeURIComponent(id)}`;
+  const locations = normalizeLocations(value.jobLocations);
 
   return {
     id,
@@ -69,7 +82,7 @@ export function normalizeNcsJob(value: unknown, collectedAt = new Date()): NcsCa
     ...(optionalString(value, "organizationName") ? { company: optionalString(value, "organizationName") } : {}),
     ...(optionalString(value, "description") ? { description: optionalString(value, "description") } : {}),
     ...(optionalExperience(value) ? { experience: optionalExperience(value) } : {}),
-    ...(optionalLocation(value.jobLocations) ? { location: optionalLocation(value.jobLocations) } : {}),
+    ...(locations.length ? { location: locations[0], locations } : {}),
     ...(publishedAt ? { publishedAt } : {}),
   };
 }

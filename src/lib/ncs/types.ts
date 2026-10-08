@@ -15,7 +15,10 @@ export type NcsCareer = {
     minimumYears?: number;
     maximumYears?: number;
   };
+  /** Legacy first-location field retained for existing catalogs and UI consumers. */
   location?: string;
+  /** All source-derived city/state values from the NCS job's location entries. */
+  locations?: string[];
   publishedAt?: string;
   source: "NCS";
   sourceUrl: string;

@@ -1,17 +1,9 @@
 import { NextRequest } from "next/server";
 import catalogData from "@/data/ncsCareers.json";
+import { matchesNcsCareerLocation } from "@/lib/ncs/locationMatching";
 import type { NcsCareer, NcsCareerCatalog } from "@/lib/ncs/types";
 
 const catalog = catalogData as NcsCareerCatalog;
-
-const cityStateMap: Readonly<Record<string, readonly string[]>> = {
-  bengaluru: ["karnataka", "bengaluru", "bangalore"],
-  "delhi ncr": ["delhi", "ncr", "haryana", "uttar pradesh", "noida", "gurugram", "gurgaon"],
-  mumbai: ["maharashtra", "mumbai"],
-  hyderabad: ["telangana", "hyderabad", "andhra pradesh"],
-  pune: ["maharashtra", "pune"],
-  chennai: ["tamil nadu", "chennai", "madras"],
-};
 
 const sectorAliases: Readonly<Record<string, readonly string[]>> = {
   technology: ["technology", "it", "information technology", "software", "communication", "it & communication"],
@@ -19,17 +11,6 @@ const sectorAliases: Readonly<Record<string, readonly string[]>> = {
   healthcare: ["healthcare", "health", "medical", "life sciences", "healthtech"],
   manufacturing: ["manufacturing", "production", "industrial", "automotive", "automation"],
 };
-
-function matchesLocation(careerLocation: string | undefined, locationFilter: string): boolean {
-  if (!locationFilter || locationFilter === "all") return true;
-  if (!careerLocation) return true;
-  const loc = careerLocation.toLocaleLowerCase();
-  if (loc.includes("pan india") || loc.includes("all india") || loc.includes("national") || loc.includes("india")) {
-    return true;
-  }
-  const aliases = cityStateMap[locationFilter] ?? [locationFilter];
-  return aliases.some((alias) => loc.includes(alias)) || loc.includes(locationFilter);
-}
 
 function matchesSector(careerSector: string | undefined, sectorFilter: string): boolean {
   if (!sectorFilter || sectorFilter === "all sectors" || sectorFilter === "all") return true;
@@ -52,7 +33,7 @@ export async function GET(request: NextRequest): Promise<Response> {
   const location = request.nextUrl.searchParams.get("location")?.trim().toLocaleLowerCase() ?? "";
 
   const careers = catalog.careers.filter((career) => {
-    return matchesQuery(career, query) && matchesSector(career.sector, sector) && matchesLocation(career.location, location);
+    return matchesQuery(career, query) && matchesSector(career.sector, sector) && matchesNcsCareerLocation(career, location);
   });
 
   return Response.json({
