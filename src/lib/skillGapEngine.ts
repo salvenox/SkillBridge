@@ -129,7 +129,7 @@ export function describeSkillGap(skill: SkillAssessment): string {
       : " Demand growth is not available for this API-derived skill."
     : skill.growth >= 30
       ? ` Demand growth of ${skill.growth}% reinforces the need to expand practical training.`
-      : ` Demand growth is ${skill.growth}% in this demonstration dataset.`;
+      : ` Demand growth is ${skill.growth}% in this NCS career dataset.`;
 
   return `Demand exceeds estimated talent availability by ${skill.gap} index points. This is a ${skill.priority.toLowerCase()} training priority.${growthSignal}${sectorContext}`;
 }

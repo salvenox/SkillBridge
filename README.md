@@ -8,7 +8,7 @@ A Smart India Hackathon 2026 workforce-intelligence prototype built with Next.js
 2. Add `ONET_API_KEY` to `.env.local`; the key is used only by the server-side `/api/onet` route.
 3. Install dependencies with `npm install`, then run `npm run dev`.
 
-The NCS catalog contains no seeded records. The application does not scrape NCS during user searches.
+The application uses the local NCS career catalog stored in `src/data/ncsCareers.json`, which contains normalized career records and required skills. User career searches query the local catalog/API and do not scrape the NCS website at runtime.
 
 ## NCS Source And Data Access
 
@@ -34,11 +34,11 @@ Input may be an array of NCS job-detail records or an object with a `jobs` array
 
 `authorized NCS export → normalizer → local NCS catalog → selected NCS career → exact skill comparison → missing-skill roadmap`
 
-Skill matching lowercases and normalizes spacing/punctuation; the only built-in alias is `JS` / `JavaScript`. Original display names are retained. No fuzzy matching is used. The current user-skill profile is held in page state for the active session because the project has no account/profile store or database.
+Skill matching lowercases and normalizes spacing/punctuation with conservative technical aliases (e.g., `JS` / `JavaScript`, `Node.js` / `Node JS`). Original display names are retained. No fuzzy matching is used. The current user-skill profile is held in page state for the active session because the project has no account/profile store or database.
 
 O*NET remains an optional server-side enrichment: for a selected NCS career, SkillBridge searches its title and only attaches O*NET importance to required skills with exact normalized-name matches. O*NET-only skills are not added as NCS requirements. If no `ONET_API_KEY` is configured, the NCS comparison continues without enrichment.
 
-There is no existing course/resource or roadmap-progress system. The current roadmap sequences missing NCS-listed requirements in their source order and explains why each matters; course links and completion tracking remain future work.
+There is no existing course/resource or roadmap-progress system. The current roadmap sequences missing NCS-listed requirements deterministically by prerequisite tier and O*NET importance (preserving source order when untiered) and explains why each skill is missing and placed at that step; course links and completion tracking remain future work.
 
 ## Commands
 
